@@ -173,9 +173,17 @@ input[type="text"] {
   width: fit-content;
 }
 
-.search-form__label:focus-visible {
+.search-form__label:has(.search-form__checkbox:focus-visible):focus-within {
   outline: 1px solid #fff;
   outline-offset: 1px;
+}
+
+.search-form__label:has(.search-form__textfield):focus-within {
+  outline: none;
+}
+
+.search-form__checkbox:focus-visible + .search-form__pseudo-checkbox {
+  outline: none;
 }
 
 .content__details {
@@ -199,7 +207,7 @@ input[type="text"] {
 }
 
 .content__list-container {
-  max-height: 298px;
+  height: 298px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
